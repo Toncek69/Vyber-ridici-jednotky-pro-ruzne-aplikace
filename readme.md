@@ -5,7 +5,7 @@
 
 $${\color{#FFA500}E9 \space \color{#4682B4}A1 }$$
 
-## Cíle
+## Cíle 
 
 - **Kategorizovat a porovnat** architektury řídicích systémů (MCU, MPU, embedded systémy, PLC, iPC, programovatelná relé) podle výkonu, paměti, determinismu a spolehlivosti.
 - **Analyzovat provozní prostředí a vnější vlivy** (krytí IP, teplotní rozsah, EMC rušení, vibrace) a stanovit požadavky na mechanickou a elektrickou odolnost hardware.
