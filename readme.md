@@ -96,8 +96,8 @@ Proč se u kritických aplikací v letectví (např. systém řízení letu Fly-
 
 3. **Odolnost vůči vlivům prostředí a dešifrování kódu IP:**
    - Dešifrujte kód **IP68**:
-     - První číslice (6): Zcela prachotěsné zařízení (úplná ochrana před vniknutím prachu a dotykem jakýmkoliv nástrojem).
-     - Druhá číslice (8): Ochrana proti nepřetržitému ponoření do vody za podmínek určených výrobcem (tlak a čas).
+     - **První číslice (6):** Zcela prachotěsné zařízení (úplná ochrana před vniknutím prachu a dotykem jakýmkoliv nástrojem).
+     - **Druhá číslice (8):** Ochrana proti nepřetržitému ponoření do vody za podmínek určených výrobcem (tlak a čas).
    - Jaké minimální krytí IP musí mít rozváděč umístěný ve venkovním nekrytém prostředí, kde na něj přímo dopadá déšť a fouká polétavý prach?
      - Označte správnou volbu: `[ ] IP20` | `[ ] IP44` | `[X] IP65` | `[ ] IP00`
      - Zdůvodnění: Krytí **IP65** poskytuje úplnou prachotěsnost (1. číslice **6**) a ochranu proti tryskající vodě ze všech směrů (2. číslice **5**). Krytí IP44 nechrání před jemným prachem (pouze před částicemi >1 mm) a nezaručuje dostatečnou ochranu před hnaným deštěm. IP20 a IP00 nemají žádnou ochranu proti vodě.
