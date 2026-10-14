@@ -265,7 +265,7 @@ Jako vedoucí inženýr jste převzal projekt po nezkušeném brigádníkovi, kt
 
 | Oblast auditu | Zjištěná vada v amatérském návrhu | Fyzikální mechanismus selhání (proč to selže) | Následek pro stroj nebo obsluhu |
 | :--- | :--- | :--- | :--- |
-| **Elektromagnetická kompatibilita (EMC)** | Hobby reléový modul spínající 400V ventily bez odrušení (RC členů/varistorů). | Rozpínání indukční zátěže ventilů generuje vysokonapěťové špičky, které se indukují do nekrytých vodičů a napájení Arduina. | Zasekávání procesoru, resetování programu, zamrznutí řízení a nebezpečné neřízené spínání ventilů. |
+| **Elektromagnetická kompatibilita (EMC)** | Hobby reléový modul spínající 400V ventily bez odrušení (RC členů/varistorů). | Napěťové špičky z indukční zátěže hydraulických ventilů způsobí restart MCU... | Zasekávání procesoru, resetování programu, zamrznutí řízení a nebezpečné neřízené spínání ventilů. |
 | **Mechanická a teplotní odolnost** | PLA plast a montáž na těleso lisu | PLA plast má nízkou teplotu skelného přechodu ($T_g \approx 60\ \text{°C}$) a pod vlivem stálých vibrací křehne a praská. | Deformace nebo rozpad krabičky, upadnutí Arduina, zkrat o těleso stroje a mechanické zničení desky. |
 | **Konektivita a propojení vodičů** | DuPont propojovací kabely bez aretace | Vibrace lisu způsobí uvolnění nepájených konektorů, oxidaci kontaktů a přechodový odpor. | Náhodné výpadky signálů, falešná spínání a ztráta řízení nad strojem. |
 | **Funkční bezpečnost (Safety)** | Nouzový stop řešený softwarově v čipu | Při zamrznutí procesoru či chybě programu softwarový interrupt neselže. Návrh nesplňuje normu ČSN EN ISO 13849-1. | Nemožnost zastavit lis při havárii. Riziko těžkého nebo smrtelného úrazu obsluhy. |
