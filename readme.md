@@ -205,22 +205,23 @@ Jste v roli projektanta automatizace. Zákazník poptává zhotovení řízení 
 2. **Výběr konkrétního hardwaru z katalogu výrobce:**
    - Navrhněte konkrétní přístroj z praxe (např. *Siemens LOGO! 24RCE + rozšiřující moduly*, *Siemens S7-1200 CPU 1212C/1214C DC/DC/RLY*, *Schneider Modicon M221*, *Eaton easyE4-UC-12RC1*, *WAGO 750*, případně průmyslový IoT kontrolér typu *UniPi Neuron*).
    - Uveďte:
-     - Výrobce a přesný model CPU: Siemens SIMATIC S7-1200, CPU 1214C DC/DC/DC
-     - Objednací kód (Part Number / Order Code): `6ES7214-1AG40-0XB0` *(obsahuje 14× DI 24V DC, 10× DO 24V DC, 2× AI 0–10V)*
-     - Rozšiřující moduly (pokud jsou nutné pro AI 4–20 mA nebo AO 0–10 V): Signal Board SB 1232 1 AO (`6ES7232-4HA30-0XB0`) pro výstup 0–10 V, Signal Module SM 1231 4 AI (`6ES7231-4HD32-0XB0`) pro proudové vstupy 4–20 mA.
-     - Napájecí napětí zvolené jednotky: 24 V DC (napájeno průmyslovým zdrojem Siemens SITOP PSU100S 24V/2,5A)
-     - Jak je vyřešeno odesílání dat na dispečink: Integrované PROFINET rozhraní s protokolem Modbus TCP propojené s průmyslovým 4G/LTE routerem (např. Teltonika RUT241) přes zabezpečený VPN tunel na dispečink.
-     - Odkaz na technický list (datasheet): https://mall.industry.siemens.com
-     - Odkazy na další použité zdroje: Siemens SIMATIC S7-1200 System Manual.
+     - Výrobce a přesný model CPU: **Siemens SIMATIC S7-1200, CPU 1214C DC/DC/RLY**
+     - Objednací kód (Part Number / Order Code): **6ES7214-1AG40-0XB0**
+     - Rozšiřující moduly (pokud jsou nutné pro AI 4–20 mA nebo AO 0–10 V): **Signal Board SB 1231 (1× AI pro proudový signál 4–20 mA, obj. kód: 6ES7232-4HA30-0XB0 nebo odpovídající modul pro proudové měření, případně použití přesného rezistoru 500 $\Omega$ na integrovaný napěťový vstup).**
+     - Napájecí napětí zvolené jednotky: **24 V DC**
+     - Jak je vyřešeno odesílání dat na dispečink: **Integrovaný Ethernet port (PROFINET) s protokolem Modbus TCP, připojený na průmyslový LTE router (např. Teltonika RUT240 nebo Siemens CP 1242-1) pro bezdrátový přenos dat do vodárenského dispečinku.**
+     - Odkaz na technický list (datasheet): chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://cache.industry.siemens.com/dl/files/465/36932465/att_106119/v1/s71200_system_manual_en-US_en-US.pdf
+     - Odkazy na další použité zdroje: `...`
 
 3. **Technické ověření z datasheetu:**
-   - Zvládá zvolená jednotka garantovaný provoz při -20 °C? Doložte údaj z datasheetu: Áno, jednotky Siemens S7-1200 CPU 1214C mají dle datasheetu garantovaný rozsah provozních teplot **-20 °C až +60 °C** (při svislé montáži -20 °C až +50 °C).
-   - Jakým způsobem spínáte cívku stykače 230 V AC (reléový výstup jednotky přímo, nebo přes pomocné mezilehlé relé)? Zdůvodněte: Spínání probíhá **přes pomocné mezilehlé relé** (např. *Finder 38 Series* nebo *Phoenix Contact RIF*). Indukční zátěž cívky stykače vyvolává při rozpojení napěťové špičky; mezilehlé relé zajišťuje galvanické oddělení tranzistorového výstupu PLC a v případě opotřebení kontaktů představuje snadno a levně vyměnitelný prvek.
+   - Zvládá zvolená jednotka garantovaný provoz při -20 °C? Doložte údaj z datasheetu: **ANO**
+   - Jakým způsobem spínáte cívku stykače 230 V AC (reléový výstup jednotky přímo, nebo přes pomocné mezilehlé relé)?
+Zdůvodněte: **Spínání je realizováno přes pomocná mezilehlá relé (interposing relays). Přestože reléové výstupy PLC dokážou spínat 230 V AC, použití mezilehlých relé zajišťuje vyšší galvanické oddělení, ochranu citlivých výstupů PLC před indukčními špičkami z cívek stykačů a snadnější servisní výměnu v případě opotřebení kontaktů vysokým spínacím počtem.**
 
 4. **Krytí rozváděče:**
    - Jaké minimální krytí **IP skříně** zvolíte? Jak v rozváděči zajistíte provoz v mrazech -20 °C a v letních vedrech?
-     - Zvolené krytí rozváděče: **IP65** *(nerezová nebo sklolaminátová skříň Rittal odolná vůči dešti a prachu)*.
-     - Teplotní management skříně: Pro mrazy (-20 °C) instalace odporového **topného tělesa s termostatem** (např. 50 W na DIN lištu) pro udržení vnitřní teploty nad +5 °C a zabránění kondenzaci vlhkosti. Pro letní vedra (+45 °C) použití **stříšky proti slunečnímu záření** a **větrací mřížky s filtrem IP55 a ventilátorem** spínaným termostatem.
+     - Zvolené krytí rozváděče: **Minimálně IP65**
+     - Teplotní management skříně: **-20 až +45**
 
 > **Kritéria hodnocení úlohy 4 (bodování a známka):**
 > - :star: **Správnost I/O bilance a dimenzování (30 %):** Správný součet všech signálů, korektní rozlišení reléových vs. tranzistorových výstupů a správné započtení rezervy min. 20 %.
